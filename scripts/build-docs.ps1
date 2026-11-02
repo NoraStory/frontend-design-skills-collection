@@ -65,8 +65,6 @@ Add-Text '</div>'
 Add-Text ''
 Add-Text '这份清单解决一个问题：**当你要做某类前端界面时，应该从哪个开源项目开始。** 每个分类下用一张表列出项目、具体适用场景、Star 与许可证；点名称即可进入仓库。'
 Add-Text ''
-Add-Text '数据由 `gh api repos/{owner}/{repo}` 在 **2026-11-02** 逐条采集，没有估算值。Star 会随时间变化，许可证以仓库当日许可证为准；生产使用前请再核对上游 LICENSE。'
-Add-Text ''
 
 for ($i = 0; $i -lt $categoryOrder.Count; $i++) {
     $cat = $categoryOrder[$i]
