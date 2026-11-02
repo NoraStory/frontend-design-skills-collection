@@ -1,5 +1,5 @@
 #!/usr/bin/env pwsh
-# Render README.md and one short card per entry under skills/ from data/repos.json.
+# Render a compact, table-first README.md and one short card per entry under skills/.
 
 $ErrorActionPreference = 'Stop'
 $root = Split-Path -Parent $PSScriptRoot
@@ -20,51 +20,52 @@ $categoryOrder = @(
     '演示、图形与视觉叙事'
 )
 
+$categoryNotes = @{
+    '落地页与营销页' = '用最短路径搭出产品首屏、定价页与活动页，重点看视觉冲击和区块完整度。'
+    'SaaS 控制台与仪表盘' = '面向登录后的工作台、数据监控与运营后台，优先考虑信息密度和组件完备度。'
+    '电商与商业转化' = '从商品、订单到店面体验，适合需要真实交易链路的商业项目。'
+    '作品集与个人站' = '个人品牌、简历与项目展示，强调排版、叙事和轻量维护。'
+    '文档站与内容站' = '产品文档、知识库与技术博客，关注导航、搜索、版本与可读性。'
+    '动效与滚动叙事' = '页面转场、滚动联动、3D 与微交互，用来建立节奏和记忆点。'
+    '设计系统与 Token' = '从颜色、间距到组件规范，适合需要长期一致性的产品体系。'
+    'UI 组件库' = '直接提供可复用的界面组件，按技术栈和视觉风格选择。'
+    '排版、字体与图标' = '界面字体、等宽字体、图标与品牌图形，决定产品的细节质感。'
+    '数据可视化' = '图表、仪表盘与大屏，按定制程度和图表类型选择。'
+    '视觉编辑器与 AI 辅助出稿' = '设计稿、白板、截图与代码之间的转换，适合探索和交付提速。'
+    '演示、图形与视觉叙事' = '幻灯片、流程图与节点画布，用可视化方式讲清复杂信息。'
+}
+
 $date = $entries[0].collectedAt
 $total = $entries.Count
-$sb = [System.Text.StringBuilder]::new()
+$uniqueAuthors = @($entries | Group-Object author)
 
-function Add-Text([string]$text) { [void]$sb.AppendLine($text) }
 function Format-Num([int]$n) { return $n.ToString('N0') }
 
+$nav = ($categoryOrder | ForEach-Object { $i = [array]::IndexOf($categoryOrder, $_); "[$($_)](#cat-$($i + 1))" }) -join ' · '
+
+$sb = [System.Text.StringBuilder]::new()
+function Add-Text([string]$text) { [void]$sb.AppendLine($text) }
+
+Add-Text '<div align="center">'
+Add-Text ''
 Add-Text '# 开源前端设计技能合集'
 Add-Text ''
-Add-Text "> **$total 个真实可查的开源项目，按前端设计场景整理。**"
-Add-Text '>'
-Add-Text "> 数据采集日期：**$date** ｜ 采集方式：通过已登录的 GitHub CLI 执行 ``gh api repos/{owner}/{repo}``，逐条读取 ``stargazers_count``、``license.spdx_id``、``archived``、``owner.login``；全部数字为当日快照，未使用估算值。"
-Add-Text '>'
-Add-Text '> 筛选口径：Star 数 ≥ 3,000、具备明确开源许可证、仓库未归档。许可证白名单为 MIT / Apache-2.0 / BSD-2-Clause / BSD-3-Clause / ISC / MPL-2.0 / CC0-1.0 / OFL-1.1 / 0BSD。'
+Add-Text '**73 个高星、许可证清晰的 open-source 前端设计项目，按使用场景整理。**'
 Add-Text ''
-Add-Text '## 这个合集是什么'
+Add-Text '![项目数](https://img.shields.io/badge/projects-73-111827?style=flat-square)'
+Add-Text '![许可证](https://img.shields.io/badge/licenses-MIT%20%7C%20Apache--2.0%20%7C%20BSD%20%7C%20ISC%20%7C%20MPL%20%7C%20CC%20%7C%20OFL-0f766e?style=flat-square)'
+Add-Text "![数据日期](https://img.shields.io/badge/data-$($date -replace '-', '--')-2563eb?style=flat-square)"
+Add-Text '![PRs](https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat-square)'
 Add-Text ''
-Add-Text '这里收集的是**能直接拿来设计或搭建前端界面**的开源项目：UI 组件库、设计系统与 Token 方案、营销页模板、后台与仪表盘、作品集与文档站、动效与滚动叙事、字体图标、数据可视化、视觉编辑器与 AI 出稿工具。'
+Add-Text "<sub>最后核验：$date · 仅收录 Star ≥ 3,000 且未归档的仓库</sub>"
 Add-Text ''
-Add-Text '每个条目都回答三件事：**许可证是什么、现在有多少 Star、最适合设计哪一类前端**。Star 与许可证会在每次更新时重新核验，不凭印象填写。'
+Add-Text "<sub>$nav</sub>"
 Add-Text ''
-Add-Text '### 快速选型'
+Add-Text '</div>'
 Add-Text ''
-Add-Text '| 你要做的界面 | 优先看 |'
-Add-Text '| --- | --- |'
-Add-Text '| 高端 SaaS / AI 产品营销首屏 | [Magic UI](#entry-magic-ui)、[Taxonomy](#entry-taxonomy)、[Flowbite](#entry-flowbite) |'
-Add-Text '| 数据密集型后台与 BI 仪表盘 | [Apache Superset](#entry-apache-superset)、[Tremor](#entry-tremor)、[Tabler](#entry-tabler) |'
-Add-Text '| 企业级中后台与表单系统 | [Ant Design](#entry-ant-design)、[MUI](#entry-material-ui)、[Element Plus](#entry-element-plus) |'
-Add-Text '| 开发者作品集与个人品牌站 | [v4](#entry-v4)、[Simplefolio](#entry-simplefolio)、[MasterPortfolio](#entry-masterportfolio) |'
-Add-Text '| 产品文档 / 开发者文档 | [Docusaurus](#entry-docusaurus)、[Starlight](#entry-starlight)、[MkDocs Material](#entry-mkdocs-material) |'
-Add-Text '| 3D / WebGL 品牌站 | [three.js](#entry-three-js)、[React Three Fiber](#entry-react-three-fiber) |'
-Add-Text '| 丝滑滚动与页面转场 | [Lenis](#entry-lenis)、[Motion](#entry-motion)、[Barba.js](#entry-barba-js) |'
-Add-Text '| 头less 电商与定制店面 | [Saleor](#entry-saleor)、[Spree Commerce](#entry-spree-commerce)、[Sylius](#entry-sylius) |'
-Add-Text '| 移动端 Web / 混合 App | [Ionic Framework](#entry-ionic-framework) |'
-Add-Text '| 截图 / 设计稿转代码 | [Screenshot to Code](#entry-screenshot-to-code)、[Onlook](#entry-onlook)、[Mitosis](#entry-mitosis) |'
+Add-Text '这份清单解决一个问题：**当你要做某类前端界面时，应该从哪个开源项目开始。** 每个分类下用一张表列出项目、具体适用场景、Star 与许可证；点名称即可进入仓库。'
 Add-Text ''
-Add-Text '## 分类索引'
-Add-Text ''
-for ($i = 0; $i -lt $categoryOrder.Count; $i++) {
-    $cat = $categoryOrder[$i]
-    $count = @($entries | Where-Object { $_.category -eq $cat }).Count
-    Add-Text "- [$cat](#cat-$($i + 1))：$count 个"
-}
-Add-Text ''
-Add-Text '## 分类详情'
+Add-Text '数据由 `gh api repos/{owner}/{repo}` 在 **2026-11-02** 逐条采集，没有估算值。Star 会随时间变化，许可证以仓库当日许可证为准；生产使用前请再核对上游 LICENSE。'
 Add-Text ''
 
 for ($i = 0; $i -lt $categoryOrder.Count; $i++) {
@@ -72,116 +73,52 @@ for ($i = 0; $i -lt $categoryOrder.Count; $i++) {
     $items = @($entries | Where-Object { $_.category -eq $cat } | Sort-Object stars -Descending)
     Add-Text "<a id=""cat-$($i + 1)""></a>"
     Add-Text ''
-    Add-Text "### $($i + 1). $cat"
+    Add-Text "## $cat"
     Add-Text ''
-    Add-Text "$($items.Count) 个项目，按 Star 数从高到低排列。"
+    Add-Text $categoryNotes[$cat]
     Add-Text ''
+    Add-Text '| 技能 | 什么时候用 | Star | 许可证 |'
+    Add-Text '| --- | --- | ---: | --- |'
     foreach ($e in $items) {
-        Add-Text "<a id=""entry-$($e.slug)""></a>"
-        Add-Text ''
-        Add-Text "#### $($e.name)"
-        Add-Text ''
-        Add-Text "[仓库](<$($e.url)>) ｜ Star **$(Format-Num $e.stars)** ｜ 许可证 **$($e.license)** ｜ [短卡片](skills/$($e.slug).md)"
-        Add-Text ''
-        Add-Text "**最适合：** $($e.fit)"
-        Add-Text ''
-        Add-Text "**为什么值得看：** $($e.note)"
-        Add-Text ''
-        if ($e.licenseNote) { Add-Text "**许可证备注：** $($e.licenseNote)" }
-        if ($e.licenseNote) { Add-Text '' }
-        Add-Text "**作者致谢：** 感谢 [@$($e.author)](<$($e.authorUrl)>) 与所有贡献者。"
-        Add-Text ''
+        $fitCell = $e.fit -replace '\|', '\|'
+        Add-Text "| [$($e.name)](<$($e.url)>) | $fitCell | $(Format-Num $e.stars) | $($e.license) |"
     }
+    Add-Text ''
 }
 
-Add-Text '## 汇总表'
+Add-Text '## 致谢开源作者'
 Add-Text ''
-Add-Text '| # | 名称 | 类别 | Star | 许可证 | 最适合 |'
-Add-Text '| --- | --- | --- | ---: | --- | --- |'
-$idx = 0
-foreach ($cat in $categoryOrder) {
-    $items = @($entries | Where-Object { $_.category -eq $cat } | Sort-Object stars -Descending)
-    foreach ($e in $items) {
-        $idx++
-        $fitCell = $e.fit -replace '\|', '\|'
-        Add-Text "| $idx | [$($e.name)](<$($e.url)>) | $($e.category) | $(Format-Num $e.stars) | $($e.license) | $fitCell |"
-    }
+Add-Text '感谢以下作者与组织。同一维护者合并为一行，括号内是其在本清单中的项目；也感谢所有项目的贡献者与社区。'
+Add-Text ''
+$sortedAuthors = $uniqueAuthors | Sort-Object @{ Expression = { $_.Count }; Descending = $true }, @{ Expression = { $_.Name.ToLower() }; Descending = $false }
+foreach ($g in $sortedAuthors) {
+    $projects = ($g.Group | Sort-Object name | ForEach-Object { $_.name }) -join '、'
+    Add-Text "- [@$($g.Name)](https://github.com/$($g.Name))（$projects）"
 }
-Add-Text ''
-Add-Text '## 数据统计'
-Add-Text ''
-Add-Text "| 指标 | 数值 |"
-Add-Text '| --- | --- |'
-Add-Text "| 条目总数 | $total |"
-Add-Text "| 分类数 | $($categoryOrder.Count) |"
-Add-Text "| Star 总数 | $(Format-Num ([int]($entries | Measure-Object stars -Sum).Sum)) |"
-Add-Text "| Star 中位数 | $(Format-Num ([int](($entries | Sort-Object stars)[[int]($total / 2)].stars))) |"
-Add-Text "| 最低 Star | $(Format-Num (($entries | Measure-Object stars -Minimum).Minimum)) |"
-Add-Text "| 最高 Star | $(Format-Num (($entries | Measure-Object stars -Maximum).Maximum)) |"
-Add-Text ''
-Add-Text '许可证分布：'
-Add-Text ''
-Add-Text '| 许可证 | 数量 |'
-Add-Text '| --- | ---: |'
-foreach ($g in ($entries | Group-Object license | Sort-Object Count -Descending)) {
-    Add-Text "| $($g.Name) | $($g.Count) |"
-}
-Add-Text ''
-Add-Text '## 被排除的项目与原因'
-Add-Text ''
-Add-Text '为保证合集可用、可商用、可长期维护，以下类型被主动排除：'
-Add-Text ''
-Add-Text '- **已归档**：picocss/pico、vercel/commerce、shoelace-style/shoelace、vercel/nextjs-subscription-payments、Shopify/polaris、1hanzla100/developer-portfolio。归档项目不再接收维护，不纳入推荐。'
-Add-Text '- **许可证不达标**：mattboldt/typed.js 为 GPL-3.0；saleor/storefront 为 FSL-1.1（source-available，带商用限制）；medusajs/medusa 核心为 MIT 但包含 Enterprise Edition 限制；apexcharts/apexcharts.js 为双许可模式；ariakit/ariakit、leerob/leerob.io、scrollreveal/scrollreveal、cruip 的两个模板、google/fonts 未提供统一根许可证（或需逐字体核对），均不纳入。'
-Add-Text '- **商业授权 / 自定义许可**：GSAP（GreenSock 标准许可）、tldraw（tldraw license）、Tailwind UI / Aceternity UI 等付费或 source-available 产品不属于开源许可范围。'
-Add-Text '- **Star 门槛**：低于 3,000 Star 的垂直项目（例如 Shopify/hydrogen 2,163、startbootstrap-agency 2,034、designrevision/shards-ui 1,709）暂不收录，避免合集被小型模板稀释。'
-Add-Text ''
-Add-Text '## 数据核对与复现'
-Add-Text ''
-Add-Text '所有数据来自 GitHub 公开仓库元数据，可用下面的命令逐条复核（需要已登录的 ``gh``）：'
-Add-Text ''
-Add-Text '```bash'
-Add-Text 'gh api repos/shadcn-ui/ui --jq ''{stars: .stargazers_count, license: .license.spdx_id, archived: .archived, owner: .owner.login}'''
-Add-Text '```'
-Add-Text ''
-Add-Text '本仓库的复现链路：'
-Add-Text ''
-Add-Text '1. ``data/curation.json``：人工整理的项目、分类、适用场景与短评。'
-Add-Text '2. ``scripts/build-data.ps1``：逐条调用 ``gh api``，写入实时 Star / 许可证 / 归档状态，生成 ``data/repos.json``。'
-Add-Text '3. ``scripts/build-docs.ps1``：由 ``data/repos.json`` 渲染 README 与 ``skills/`` 卡片，保证三者一致。'
-Add-Text '4. ``scripts/verify.ps1``：重新拉取 GitHub 数据并核对 README 表格、Star 数、许可证与条目数。'
-Add-Text ''
-Add-Text '## 贡献指南'
-Add-Text ''
-Add-Text '欢迎补充项目，请满足以下条件：'
-Add-Text ''
-Add-Text '1. 仓库仍在维护、未归档，Star ≥ 3,000（特别优秀的垂直项目可说明理由）。'
-Add-Text '2. 具备明确的开源许可证（MIT / Apache-2.0 / BSD / ISC / MPL-2.0 / CC / OFL 等），不接受 source-available 或自定义商用限制。'
-Add-Text '3. 与前端设计直接相关：UI、设计系统、模板、动效、字体图标、数据可视化、设计工具或 AI 出稿。'
-Add-Text '4. 在 ``data/curation.json`` 增加条目（名称、仓库、分类、最适合、为什么值得看），运行生成脚本，不要在 README 里手工改表。'
-Add-Text '5. 提交前运行 ``pwsh ./scripts/verify.ps1``，确保没有重复、没有失效链接、许可证非空。'
 Add-Text ''
 Add-Text '## 免责声明'
 Add-Text ''
-Add-Text '本仓库**只做收集与整理，不拥有任何上游项目的版权**。所有代码、设计、字体、图标与商标版权归原作者及贡献者所有，使用时请遵守各项目自己的许可证。'
+Add-Text '本仓库只做收集与整理，**不拥有任何上游项目的版权**。代码、设计、字体、图标与商标归原作者及贡献者所有，使用时请遵守各项目自己的许可证。收录不代表安全审计或商业适用性背书。'
 Add-Text ''
-Add-Text 'Star 数与许可证是 2026-11-02 的快照，会随时间变化；收录不代表安全审计或商业适用性背书，生产使用前请自行复核许可证与供应链风险。'
+Add-Text '## 贡献指南'
 Add-Text ''
-Add-Text '本合集文档采用 [CC BY 4.0](LICENSE) 许可；各上游项目仍保留其原始许可证。'
+Add-Text '- 仓库需未归档、Star ≥ 3,000，并与前端设计直接相关。'
+Add-Text '- 许可证必须是 MIT / Apache-2.0 / BSD / ISC / MPL-2.0 / CC / OFL 等明确开源许可，不接受 source-available 或自定义商用限制。'
+Add-Text '- 在 `data/curation.json` 增加条目，运行 `pwsh ./scripts/build-data.ps1`、`pwsh ./scripts/build-docs.ps1` 与 `pwsh ./scripts/verify.ps1`，不要手工修改 README 表格。'
 Add-Text ''
-Add-Text '## 目录'
+Add-Text '## 数据说明'
 Add-Text ''
-Add-Text '- [README.md](README.md)：分类说明、逐条点评与汇总表'
-Add-Text '- [目录索引.xlsx](目录索引.xlsx)：可筛选的表格索引'
-Add-Text '- [skills/](skills/)：每个项目一张短卡片'
-Add-Text '- [data/repos.json](data/repos.json)：结构化数据源'
-Add-Text '- [scripts/](scripts/)：采集、生成与校验脚本'
+Add-Text "- 条目数：**$total**；分类数：**$($categoryOrder.Count)**；数据日期：**$date**；Star 总数：**$(Format-Num ([int]($entries | Measure-Object stars -Sum).Sum))**。"
+Add-Text '- 采集方式：对每个仓库执行 `gh api repos/{owner}/{repo}`，读取 `stargazers_count`、`license.spdx_id`、`archived`、`owner.login`。'
+Add-Text '- 筛选口径：Star ≥ 3,000、未归档、许可证在白名单内。已归档的 pico、vercel/commerce、shoelace、Shopify/polaris，以及 GPL / FSL / 双许可 / 无统一许可证的项目已排除。'
+Add-Text '- Fluent UI、Vuetify、Lucide 在 GitHub 显示为 `NOASSERTION`，已人工核对各自 LICENSE 后分别记为 MIT、MIT、ISC。'
+Add-Text '- 可筛选版本见 [目录索引.xlsx](目录索引.xlsx)；结构化数据见 [data/repos.json](data/repos.json)；每项目短卡片见 [skills/](skills/)。'
 Add-Text ''
 
 $readme = Join-Path $root 'README.md'
 [System.IO.File]::WriteAllText($readme, $sb.ToString(), [System.Text.UTF8Encoding]::new($false))
 
-# Generate short cards.
+# Keep short cards factually aligned with README.
 $skillsDir = Join-Path $root 'skills'
 Get-ChildItem $skillsDir -Filter '*.md' | Remove-Item -Force
 foreach ($e in $entries) {
@@ -202,4 +139,4 @@ foreach ($e in $entries) {
     [System.IO.File]::WriteAllText($path, $card, [System.Text.UTF8Encoding]::new($false))
 }
 
-Write-Host "Rendered README.md and $($entries.Count) cards under skills/."
+Write-Host "Rendered README.md ($($sb.ToString().Split("`n").Count) lines) and $($entries.Count) cards."

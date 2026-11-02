@@ -25,31 +25,50 @@ foreach ($e in $entries) {
     if ($e.archived) { $errors += "Archived repo included: $($e.repo)" }
 }
 
-# 2. README summary table
-if ($readme -notmatch '## 汇总表') { $errors += 'README is missing the summary table section.' }
-else {
-    $summary = ($readme -split '## 汇总表')[1]
-    $summary = ($summary -split '## 数据统计')[0]
-    $rows = @($summary -split "`r?`n" | Where-Object { $_ -match '^\|\s*\d+\s*\|' })
-    if ($rows.Count -ne $entries.Count) { $errors += "README table has $($rows.Count) rows, data has $($entries.Count)." }
-    $tableRepos = @()
-    foreach ($row in $rows) {
-        $m = [regex]::Match($row, 'https://github\.com/([^)>]+)')
-        if ($m.Success) { $tableRepos += $m.Groups[1].Value }
-    }
-    $tableUnique = @($tableRepos | Sort-Object -Unique)
-    if ($tableUnique.Count -ne $entries.Count) { $errors += "README table unique repos: $($tableUnique.Count), expected $($entries.Count)." }
-    $dataRepos = @($entries.repo | Sort-Object -Unique)
-    $missing = @($dataRepos | Where-Object { $tableUnique -notcontains $_ })
-    $extra = @($tableUnique | Where-Object { $dataRepos -notcontains $_ })
-    if ($missing.Count) { $errors += "README table missing: $($missing -join ', ')" }
-    if ($extra.Count) { $errors += "README table has unknown repos: $($extra -join ', ')" }
+# 2. README per-category tables
+$tableRows = @($readme -split "`r?`n" | Where-Object { $_ -match '^\|\s*\[[^\]]+\]' })
+if ($tableRows.Count -ne $entries.Count) { $errors += "README tables have $($tableRows.Count) project rows, data has $($entries.Count)." }
+$tableRepos = @()
+foreach ($row in $tableRows) {
+    $m = [regex]::Match($row, 'https://github\.com/([^)>]+)')
+    if ($m.Success) { $tableRepos += $m.Groups[1].Value }
+}
+$tableUnique = @($tableRepos | Sort-Object -Unique)
+if ($tableUnique.Count -ne $entries.Count) { $errors += "README table unique repos: $($tableUnique.Count), expected $($entries.Count)." }
+$dataRepos = @($entries.repo | Sort-Object -Unique)
+$missing = @($dataRepos | Where-Object { $tableUnique -notcontains $_ })
+$extra = @($tableUnique | Where-Object { $dataRepos -notcontains $_ })
+if ($missing.Count) { $errors += "README table missing: $($missing -join ', ')" }
+if ($extra.Count) { $errors += "README table has unknown repos: $($extra -join ', ')" }
+
+foreach ($e in $entries) {
+    $row = $tableRows | Where-Object { $_ -match [regex]::Escape($e.url) } | Select-Object -First 1
+    if (-not $row) { $errors += "README row missing: $($e.repo)"; continue }
+    if ($row -notmatch "\|\s*$([regex]::Escape($e.stars.ToString('N0')))\s*\|") { $errors += "README star mismatch: $($e.repo)" }
+    if ($row -notmatch "\|\s*$([regex]::Escape($e.license))\s*\|$") { $errors += "README license mismatch: $($e.repo)" }
 }
 
-# 3. README section links
-foreach ($e in $entries) {
-    if ($readme -notmatch [regex]::Escape($e.url)) { $errors += "README does not link $($e.repo)" }
-    if ($readme -notmatch [regex]::Escape("skills/$($e.slug).md")) { $errors += "README does not link card $($e.slug).md" }
+# 3. README structure and credits
+if ($readme -match '\*\*作者致谢：\*\*' -or $readme -match '\*\*为什么值得看：\*\*') {
+    $errors += 'README still contains the old per-entry thank-you or rationale block.'
+}
+$sectionCount = @($readme -split "`r?`n" | Where-Object { $_ -match '^## ' }).Count
+if ($sectionCount -lt 16) { $errors += "README has only $sectionCount level-2 sections, expected 12 categories plus 4 closing sections." }
+$creditsSection = ($readme -split '## 致谢开源作者')[1]
+if (-not $creditsSection) { $errors += 'README is missing the credits section.' }
+else {
+    $creditsSection = ($creditsSection -split '## 免责声明')[0]
+    $creditLines = @($creditsSection -split "`r?`n" | Where-Object { $_ -match '^- \[@' })
+    $uniqueAuthorNames = @($entries.author | Sort-Object -Unique)
+    if ($creditLines.Count -ne $uniqueAuthorNames.Count) { $errors += "Credits have $($creditLines.Count) lines, expected $($uniqueAuthorNames.Count) authors." }
+    foreach ($author in $uniqueAuthorNames) {
+        $line = $creditLines | Where-Object { $_ -match "^[-] [\[]@$([regex]::Escape($author))\]" } | Select-Object -First 1
+        if (-not $line) { $errors += "Credits missing author: $author"; continue }
+        $projects = @($entries | Where-Object { $_.author -eq $author } | ForEach-Object { $_.name })
+        foreach ($p in $projects) {
+            if ($line -notmatch [regex]::Escape($p)) { $errors += "Credits line for $author missing project: $p" }
+        }
+    }
 }
 
 # 4. Cards
