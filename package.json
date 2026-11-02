@@ -1,0 +1,15 @@
+{
+  "name": "frontend-design-skills-collection",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A curated collection of high-quality open-source frontend design skills, UI systems, templates and tools.",
+  "scripts": {
+    "build:data": "pwsh -NoProfile -File scripts/build-data.ps1",
+    "build:docs": "pwsh -NoProfile -File scripts/build-docs.ps1",
+    "build:xlsx": "node scripts/make-xlsx.js",
+    "verify": "pwsh -NoProfile -File scripts/verify.ps1"
+  },
+  "devDependencies": {
+    "exceljs": "^4.4.0"
+  }
+}

@@ -1,0 +1,9 @@
+node_modules/
+.venv/
+.tmp/
+data/raw-metadata.json
+data/raw-extras.json
+*.log
+.DS_Store
+Thumbs.db
+~$*.xlsx

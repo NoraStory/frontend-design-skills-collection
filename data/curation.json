@@ -1,0 +1,592 @@
+[
+  {
+    "name": "Taxonomy",
+    "slug": "taxonomy",
+    "repo": "shadcn-ui/taxonomy",
+    "category": "落地页与营销页",
+    "fit": "适合带登录、订阅与文档的 SaaS 产品站，尤其是 shadcn 风格的营销首屏、定价页和博客组合。",
+    "note": "Next.js + shadcn/ui + NextAuth + Stripe 的完整应用骨架，营销页、文档页和后台都能直接复用。"
+  },
+  {
+    "name": "Magic UI",
+    "slug": "magic-ui",
+    "repo": "magicuidesign/magicui",
+    "category": "落地页与营销页",
+    "fit": "适合 AI / SaaS 产品的营销首屏，用粒子、光束、跑马灯和数字动效制造记忆点。",
+    "note": "基于 React、Tailwind 与 Motion 的动画组件库，复制即用，适合快速做高视觉冲击的落地页。"
+  },
+  {
+    "name": "Flowbite",
+    "slug": "flowbite",
+    "repo": "themesberg/flowbite",
+    "category": "落地页与营销页",
+    "fit": "适合中小团队用 Tailwind 快速拼出营销页、价格页、博客和后台界面。",
+    "note": "组件与页面 blocks 覆盖完整，文档和 Figma 资源同步，落地速度快。"
+  },
+  {
+    "name": "Material Tailwind",
+    "slug": "material-tailwind",
+    "repo": "creativetimofficial/material-tailwind",
+    "category": "落地页与营销页",
+    "fit": "适合想要 Material 质感又不想放弃 Tailwind 效率的产品官网与营销页。",
+    "note": "把 Material Design 的层次、阴影和动效带进 Tailwind，组件 API 简单。"
+  },
+  {
+    "name": "Material Kit React",
+    "slug": "material-kit-react",
+    "repo": "devias-io/material-kit-react",
+    "category": "落地页与营销页",
+    "fit": "适合需要成套 MUI 营销区块的 SaaS 官网，Hero、Features、Pricing、Testimonials 可直接替换文案。",
+    "note": "免费版就提供完整营销页面结构，适合快速做出体面的产品官网。"
+  },
+  {
+    "name": "Apache Superset",
+    "slug": "apache-superset",
+    "repo": "apache/superset",
+    "category": "SaaS 控制台与仪表盘",
+    "fit": "适合数据密集型的内部 BI 控制台、运营分析台和可配置的大屏。",
+    "note": "成熟的 SQL 查询、图表与仪表盘体系，适合直接做企业分析平台而不是从零写图表。"
+  },
+  {
+    "name": "AdminLTE",
+    "slug": "adminlte",
+    "repo": "ColorlibHQ/AdminLTE",
+    "category": "SaaS 控制台与仪表盘",
+    "fit": "适合传统后台、运维面板和 CRUD 管理系统，尤其是需要快速落地的 Bootstrap 项目。",
+    "note": "经典后台模板，菜单、表格、表单和小部件齐全，改造成本低。"
+  },
+  {
+    "name": "Tabler",
+    "slug": "tabler",
+    "repo": "Tabler/tabler",
+    "category": "SaaS 控制台与仪表盘",
+    "fit": "适合干净、密度适中的 SaaS 管理后台、监控台和项目工作台。",
+    "note": "设计克制的 Bootstrap 后台套件，页面和组件覆盖广，视觉比传统 Admin 模板更现代。"
+  },
+  {
+    "name": "Refine",
+    "slug": "refine",
+    "repo": "refinedev/refine",
+    "category": "SaaS 控制台与仪表盘",
+    "fit": "适合 React 内部工具、管理后台和需要快速接 REST/GraphQL 的 CRUD 产品。",
+    "note": "无头架构把 UI 与数据层解耦，可接 Ant Design、MUI、Chakra 等多种设计系统。"
+  },
+  {
+    "name": "Tremor",
+    "slug": "tremor",
+    "repo": "tremorlabs/tremor",
+    "category": "SaaS 控制台与仪表盘",
+    "fit": "适合以 KPI 卡片、趋势图、状态条为核心的现代 SaaS 仪表盘。",
+    "note": "专门为仪表盘设计的组件与图表，默认样式就很像成熟数据产品。"
+  },
+  {
+    "name": "Appsmith",
+    "slug": "appsmith",
+    "repo": "appsmithorg/appsmith",
+    "category": "SaaS 控制台与仪表盘",
+    "fit": "适合低代码内部工具、运营后台和把表格/表单/图表快速拼成工作台的场景。",
+    "note": "拖拽式搭建 + 可写 JS，能在不写完整前端的情况下交付内部系统。"
+  },
+  {
+    "name": "Saleor",
+    "slug": "saleor",
+    "repo": "saleor/saleor",
+    "category": "电商与商业转化",
+    "fit": "适合需要 GraphQL 头less 电商后端与高度定制店面的中大型商业项目。",
+    "note": "API-first 的电商平台，商品、订单、支付和促销模型完整，前端可自由发挥。"
+  },
+  {
+    "name": "Spree Commerce",
+    "slug": "spree-commerce",
+    "repo": "spree/spree",
+    "category": "电商与商业转化",
+    "fit": "适合 Ruby/Rails 技术栈的电商后台、多店铺运营和需要深度定制的交易流程。",
+    "note": "老牌开源电商框架，后台与订单体系成熟，适合有 Rails 团队的商业项目。"
+  },
+  {
+    "name": "Sylius",
+    "slug": "sylius",
+    "repo": "sylius/sylius",
+    "category": "电商与商业转化",
+    "fit": "适合 PHP/Symfony 电商，尤其是复杂商品模型、多语言和多市场场景。",
+    "note": "以组件化方式构建电商，领域模型清晰，适合需要长期演进的商业系统。"
+  },
+  {
+    "name": "v4 (Brittany Chiang Portfolio)",
+    "slug": "v4",
+    "repo": "bchiang7/v4",
+    "category": "作品集与个人站",
+    "fit": "适合开发者个人作品集，想要深色极简、强排版和单页叙事的高级感。",
+    "note": "被大量作品集模仿的经典结构，导航、经历时间线和项目卡片都值得参考。"
+  },
+  {
+    "name": "VCard Personal Portfolio",
+    "slug": "vcard-personal-portfolio",
+    "repo": "codewithsadee/vcard-personal-portfolio",
+    "category": "作品集与个人站",
+    "fit": "适合个人简历式名片站，单页展示头像、技能、项目与联系方式。",
+    "note": "纯 HTML/CSS/JS 的轻量模板，结构清楚，改文案和配色即可上线。"
+  },
+  {
+    "name": "Simplefolio",
+    "slug": "simplefolio",
+    "repo": "cobiwave/simplefolio",
+    "category": "作品集与个人站",
+    "fit": "适合快速上线一个干净的开发者作品集，重点突出项目卡片和简历下载。",
+    "note": "React + 简洁版式，动效克制，适合不想过度设计的求职者。"
+  },
+  {
+    "name": "MasterPortfolio",
+    "slug": "masterportfolio",
+    "repo": "ashutosh1919/masterPortfolio",
+    "category": "作品集与个人站",
+    "fit": "适合想要丰富模块（关于、技能、经历、项目、博客）的个人品牌站。",
+    "note": "模块化 React 作品集，主题和内容配置集中，适合一次搭好长期维护。"
+  },
+  {
+    "name": "Docusaurus",
+    "slug": "docusaurus",
+    "repo": "facebook/docusaurus",
+    "category": "文档站与内容站",
+    "fit": "适合产品文档、开发者文档和需要版本化/国际化/博客的内容站。",
+    "note": "Meta 开源文档框架，文档版本、搜索、插件和主题生态成熟。"
+  },
+  {
+    "name": "Docsify",
+    "slug": "docsify",
+    "repo": "docsifyjs/docsify",
+    "category": "文档站与内容站",
+    "fit": "适合轻量 Markdown 文档站，不想引入构建流程、直接静态托管即可。",
+    "note": "运行时渲染 Markdown，零构建，适合快速搭知识库和项目说明。"
+  },
+  {
+    "name": "MkDocs Material",
+    "slug": "mkdocs-material",
+    "repo": "squidfunk/mkdocs-material",
+    "category": "文档站与内容站",
+    "fit": "适合技术手册、知识库和需要精致导航、搜索、代码高亮的文档站。",
+    "note": "Material 风格文档主题的事实标准，配置丰富，移动端体验好。"
+  },
+  {
+    "name": "mdBook",
+    "slug": "mdbook",
+    "repo": "rust-lang/mdBook",
+    "category": "文档站与内容站",
+    "fit": "适合 Rust/CLI 工具书式文档，生成可离线阅读的电子书。",
+    "note": "Rust 官方文档工具链常用，Markdown 写作、单文件输出、搜索都具备。"
+  },
+  {
+    "name": "Hugo PaperMod",
+    "slug": "hugo-papermod",
+    "repo": "adityatelange/hugo-PaperMod",
+    "category": "文档站与内容站",
+    "fit": "适合博客、技术写作和偏内容型的个人站，追求极简、快和 SEO 友好。",
+    "note": "Hugo 的高人气主题，暗色模式、目录、搜索和社交链接开箱即用。"
+  },
+  {
+    "name": "Nextra",
+    "slug": "nextra",
+    "repo": "shuding/nextra",
+    "category": "文档站与内容站",
+    "fit": "适合 Next.js 生态的文档 + 博客混合站，需要 MDX 与内置主题。",
+    "note": "基于 Next.js 的文档框架，写 MDX 就能得到完整导航、搜索和主题。"
+  },
+  {
+    "name": "Starlight",
+    "slug": "starlight",
+    "repo": "withastro/starlight",
+    "category": "文档站与内容站",
+    "fit": "适合 Astro 项目的开发者文档站，轻量且可访问性好的默认设计。",
+    "note": "Astro 官方文档主题，内置侧边栏、搜索、i18n 和暗色模式。"
+  },
+  {
+    "name": "three.js",
+    "slug": "three-js",
+    "repo": "mrdoob/three.js",
+    "category": "动效与滚动叙事",
+    "fit": "适合需要 3D 产品展示、WebGL 首屏和空间叙事的品牌站。",
+    "note": "WebGL 生态最成熟的三维库，示例和材质/光照能力覆盖绝大多数 3D 网页需求。"
+  },
+  {
+    "name": "Anime.js",
+    "slug": "anime-js",
+    "repo": "juliangarnier/anime",
+    "category": "动效与滚动叙事",
+    "fit": "适合需要时间轴编排的 SVG、Logo、加载动画和轻量 DOM 动效。",
+    "note": "API 简洁、体积小，适合不依赖框架的精细动画编排。"
+  },
+  {
+    "name": "Motion (Framer Motion)",
+    "slug": "motion",
+    "repo": "framer/motion",
+    "category": "动效与滚动叙事",
+    "fit": "适合 React 产品里的页面转场、手势、滚动进度和微交互。",
+    "note": "声明式动画 API，布局动画、手势和退出动画都很成熟，是 React 动效首选之一。"
+  },
+  {
+    "name": "React Three Fiber",
+    "slug": "react-three-fiber",
+    "repo": "pmndrs/react-three-fiber",
+    "category": "动效与滚动叙事",
+    "fit": "适合 React 技术栈的 3D 产品配置器、沉浸式首屏和交互式场景。",
+    "note": "把 three.js 变成 React 组件，配合 Drei 可快速搭出高质量 3D 界面。"
+  },
+  {
+    "name": "AOS",
+    "slug": "aos",
+    "repo": "michalsnik/aos",
+    "category": "动效与滚动叙事",
+    "fit": "适合传统静态页快速加滚动入场动画，成本最低。",
+    "note": "一行 data 属性即可启用，适合老项目或轻量营销页。"
+  },
+  {
+    "name": "Lenis",
+    "slug": "lenis",
+    "repo": "darkroomengineering/lenis",
+    "category": "动效与滚动叙事",
+    "fit": "适合高端品牌站、作品集和需要丝滑惯性滚动、滚动联动的页面。",
+    "note": "轻量平滑滚动库，常与 GSAP/滚动动画配合，手感和性能都不错。"
+  },
+  {
+    "name": "Barba.js",
+    "slug": "barba-js",
+    "repo": "barbajs/barba",
+    "category": "动效与滚动叙事",
+    "fit": "适合多页站点做无刷新页面转场，同时保留 SEO 与真实 URL。",
+    "note": "页面级转场方案，不需要改成 SPA 就能获得连贯的过渡体验。"
+  },
+  {
+    "name": "Ant Design",
+    "slug": "ant-design",
+    "repo": "ant-design/ant-design",
+    "category": "设计系统与 Token",
+    "fit": "适合中后台密集表单、表格、权限系统的企业级设计语言。",
+    "note": "企业级组件与设计规范完整，中文生态和业务模板丰富。"
+  },
+  {
+    "name": "Material UI (MUI)",
+    "slug": "material-ui",
+    "repo": "mui/material-ui",
+    "category": "设计系统与 Token",
+    "fit": "适合 React 中后台/SaaS，需要成熟组件和深度主题定制。",
+    "note": "组件覆盖极广，主题、暗色模式和可访问性支持成熟，社区体量巨大。"
+  },
+  {
+    "name": "Tailwind CSS",
+    "slug": "tailwind-css",
+    "repo": "tailwindlabs/tailwindcss",
+    "category": "设计系统与 Token",
+    "fit": "适合任何需要自定义视觉系统的前端，从营销页到后台。",
+    "note": "原子化 CSS 的事实标准，配合设计 Token 能快速建立一致的视觉语言。"
+  },
+  {
+    "name": "Chakra UI",
+    "slug": "chakra-ui",
+    "repo": "chakra-ui/chakra-ui",
+    "category": "设计系统与 Token",
+    "fit": "适合快速搭可访问的 React 产品界面，主题与暗色模式开箱即用。",
+    "note": "API 友好、无障碍默认到位，适合中小团队快速形成统一界面。"
+  },
+  {
+    "name": "Mantine",
+    "slug": "mantine",
+    "repo": "mantinedev/mantine",
+    "category": "设计系统与 Token",
+    "fit": "适合需要大量现成组件和 hooks 的 React 管理端/工具站。",
+    "note": "组件、hooks、表单和日期库一体化，默认视觉现代，定制成本低。"
+  },
+  {
+    "name": "Headless UI",
+    "slug": "headless-ui",
+    "repo": "tailwindlabs/headlessui",
+    "category": "设计系统与 Token",
+    "fit": "适合想要完全掌控视觉、只复用交互与无障碍逻辑的 Tailwind 项目。",
+    "note": "无样式组件把键盘导航、焦点管理和过渡逻辑处理好，设计自由度高。"
+  },
+  {
+    "name": "Fluent UI",
+    "slug": "fluent-ui",
+    "repo": "microsoft/fluentui",
+    "category": "设计系统与 Token",
+    "fit": "适合微软风格的企业应用、Office 类生产力工具和需要高密度交互的产品。",
+    "note": "微软官方设计系统，组件、主题、图标和可访问性规范齐全。",
+    "licenseOverride": "MIT",
+    "licenseNote": "GitHub 未识别许可证，已核对仓库根目录 LICENSE 为 MIT。"
+  },
+  {
+    "name": "Radix Primitives",
+    "slug": "radix-primitives",
+    "repo": "radix-ui/primitives",
+    "category": "设计系统与 Token",
+    "fit": "适合自建设计系统的团队，作为无障碍交互底座。",
+    "note": "无样式、可组合、无障碍优先，是 shadcn/ui 等大量现代组件库的基础。"
+  },
+  {
+    "name": "React Spectrum",
+    "slug": "react-spectrum",
+    "repo": "adobe/react-spectrum",
+    "category": "设计系统与 Token",
+    "fit": "适合 Adobe 风格、复杂交互与国际化要求高的企业应用。",
+    "note": "Adobe 设计系统，表格、拖拽、日期等复杂组件的交互细节非常扎实。"
+  },
+  {
+    "name": "Carbon Design System",
+    "slug": "carbon-design-system",
+    "repo": "carbon-design-system/carbon",
+    "category": "设计系统与 Token",
+    "fit": "适合 IBM 风格的大型企业后台、数据产品与设计规范落地。",
+    "note": "完整的设计语言、组件和图表体系，适合需要强规范的大型组织。"
+  },
+  {
+    "name": "Bootstrap",
+    "slug": "bootstrap",
+    "repo": "twbs/bootstrap",
+    "category": "UI 组件库",
+    "fit": "适合传统企业站、快速原型和需要稳定栅格与组件的老项目。",
+    "note": "最普及的前端 UI 框架，文档、示例和第三方生态极其丰富。"
+  },
+  {
+    "name": "shadcn/ui",
+    "slug": "shadcn-ui",
+    "repo": "shadcn-ui/ui",
+    "category": "UI 组件库",
+    "fit": "适合 AI 生成式 UI、SaaS 后台与营销站，代码可直接掌控。",
+    "note": "组件代码直接复制进项目，基于 Radix + Tailwind，现代且不被库锁定。"
+  },
+  {
+    "name": "Ionic Framework",
+    "slug": "ionic-framework",
+    "repo": "ionic-team/ionic-framework",
+    "category": "UI 组件库",
+    "fit": "适合一套代码做移动端 Web/混合 App，接近原生交互。",
+    "note": "移动端组件与手势体系成熟，可配合 React/Vue/Angular 和 Capacitor。"
+  },
+  {
+    "name": "Semantic UI",
+    "slug": "semantic-ui",
+    "repo": "semantic-org/Semantic-UI",
+    "category": "UI 组件库",
+    "fit": "适合老项目维护或需要语义化类名的快速页面。",
+    "note": "自然语言式类名降低学习成本，适合遗留系统和教学示例。"
+  },
+  {
+    "name": "Bulma",
+    "slug": "bulma",
+    "repo": "jgthms/bulma",
+    "category": "UI 组件库",
+    "fit": "适合纯 CSS、无 JS 依赖的轻量营销页、博客和简单后台。",
+    "note": "只依赖 CSS，栅格和组件清晰，适合不想引入 JS 框架的项目。"
+  },
+  {
+    "name": "Vuetify",
+    "slug": "vuetify",
+    "repo": "vuetifyjs/vuetify",
+    "category": "UI 组件库",
+    "fit": "适合 Vue 3 中后台与 Material 风格的完整组件体系。",
+    "note": "Vue 生态最完整的 Material 组件库，表单、表格和布局组件覆盖广。",
+    "licenseOverride": "MIT",
+    "licenseNote": "GitHub 未识别许可证，已核对 packages/vuetify/LICENSE.md 为 MIT。"
+  },
+  {
+    "name": "HeroUI",
+    "slug": "heroui",
+    "repo": "heroui-inc/heroui",
+    "category": "UI 组件库",
+    "fit": "适合 React/Next.js 现代 SaaS，想要动效和精美默认样式的产品界面。",
+    "note": "由 NextUI 演进而来，默认视觉精致，动效和暗色模式体验好。"
+  },
+  {
+    "name": "Element Plus",
+    "slug": "element-plus",
+    "repo": "element-plus/element-plus",
+    "category": "UI 组件库",
+    "fit": "适合 Vue 3 中后台、表单表格密集的业务系统和国内企业项目。",
+    "note": "Element UI 的 Vue 3 继任者，中文文档与业务组件生态成熟。"
+  },
+  {
+    "name": "Fira Code",
+    "slug": "fira-code",
+    "repo": "tonsky/FiraCode",
+    "category": "排版、字体与图标",
+    "fit": "适合开发者文档、技术产品官网的代码展示与等宽排版。",
+    "note": "带编程连字的等宽字体，代码可读性和品牌感兼顾。"
+  },
+  {
+    "name": "Material Design Icons",
+    "slug": "material-design-icons",
+    "repo": "google/material-design-icons",
+    "category": "排版、字体与图标",
+    "fit": "适合需要完整 Material 图标集的 Web 与移动端产品。",
+    "note": "Google 官方图标库，覆盖极广，风格统一，适合 Material 体系。"
+  },
+  {
+    "name": "Simple Icons",
+    "slug": "simple-icons",
+    "repo": "simple-icons/simple-icons",
+    "category": "排版、字体与图标",
+    "fit": "适合品牌墙、社交链接和技术栈展示，统一 SVG 品牌图标。",
+    "note": "收录大量品牌 SVG，许可证清晰，适合做合作方/技术栈展示。"
+  },
+  {
+    "name": "Lucide",
+    "slug": "lucide",
+    "repo": "lucide-icons/lucide",
+    "category": "排版、字体与图标",
+    "fit": "适合现代 SaaS/工具的线性图标系统，风格统一且可定制。",
+    "note": "Feather 的现代继任者，图标一致性强，支持多框架和 SVG 定制。",
+    "licenseOverride": "ISC",
+    "licenseNote": "GitHub 未识别许可证，已核对仓库根目录 LICENSE 为 ISC。"
+  },
+  {
+    "name": "Heroicons",
+    "slug": "heroicons",
+    "repo": "tailwindlabs/heroicons",
+    "category": "排版、字体与图标",
+    "fit": "适合 Tailwind 项目的手工打磨线性/实心图标。",
+    "note": "Tailwind 官方图标集，尺寸和笔画经过打磨，和 Tailwind 视觉天然匹配。"
+  },
+  {
+    "name": "Tabler Icons",
+    "slug": "tabler-icons",
+    "repo": "tabler/tabler-icons",
+    "category": "排版、字体与图标",
+    "fit": "适合后台/仪表盘的高密度图标需求，覆盖广。",
+    "note": "数千个统一风格的 SVG 图标，适合需要大量功能入口的管理界面。"
+  },
+  {
+    "name": "Inter",
+    "slug": "inter",
+    "repo": "rsms/inter",
+    "category": "排版、字体与图标",
+    "fit": "适合 UI 正文与数据表格，屏幕可读性优先的产品界面。",
+    "note": "为屏幕阅读优化的无衬线字体，字重完整，是 SaaS 界面的安全选择。"
+  },
+  {
+    "name": "D3.js",
+    "slug": "d3-js",
+    "repo": "d3/d3",
+    "category": "数据可视化",
+    "fit": "适合需要完全自定义的数据可视化、交互式图表和地理可视化。",
+    "note": "最底层的可视化工具箱，控制力极强，适合做独特的数据叙事。"
+  },
+  {
+    "name": "Chart.js",
+    "slug": "chart-js",
+    "repo": "chartjs/Chart.js",
+    "category": "数据可视化",
+    "fit": "适合快速上线的常规折线/柱状/饼图，配置简单。",
+    "note": "Canvas 图表库，API 直观，适合中小型仪表盘和报表。"
+  },
+  {
+    "name": "Apache ECharts",
+    "slug": "apache-echarts",
+    "repo": "apache/echarts",
+    "category": "数据可视化",
+    "fit": "适合中文业务后台、大屏和复杂联动图表。",
+    "note": "图表类型和交互能力极全，中文文档完善，适合运营大屏。"
+  },
+  {
+    "name": "Recharts",
+    "slug": "recharts",
+    "repo": "recharts/recharts",
+    "category": "数据可视化",
+    "fit": "适合 React 仪表盘里的组合图表，组件化接入最快。",
+    "note": "基于 D3 的 React 图表库，组合式 API 直观，和 React 生态贴合。"
+  },
+  {
+    "name": "Visx",
+    "slug": "visx",
+    "repo": "airbnb/visx",
+    "category": "数据可视化",
+    "fit": "适合需要低层 SVG 控制、又不想从零写 D3 的 React 数据产品。",
+    "note": "Airbnb 的可组合可视化原语，兼顾 D3 能力和 React 组件化。"
+  },
+  {
+    "name": "Plotly.js",
+    "slug": "plotly-js",
+    "repo": "plotly/plotly.js",
+    "category": "数据可视化",
+    "fit": "适合科研/金融分析型图表，需要 3D、统计图和导出能力。",
+    "note": "科学计算级图表库，图表类型和交互丰富，适合分析型产品。"
+  },
+  {
+    "name": "Excalidraw",
+    "slug": "excalidraw",
+    "repo": "excalidraw/excalidraw",
+    "category": "视觉编辑器与 AI 辅助出稿",
+    "fit": "适合手绘风格架构图、流程草图和白板协作。",
+    "note": "开源白板的事实标准，手绘视觉亲和，适合文档配图和远程讨论。"
+  },
+  {
+    "name": "Penpot",
+    "slug": "penpot",
+    "repo": "penpot/penpot",
+    "category": "视觉编辑器与 AI 辅助出稿",
+    "fit": "适合开源替代 Figma 的团队设计稿、设计系统和交付流程。",
+    "note": "开源设计与协作平台，支持设计稿、原型和设计 Token，自托管友好。"
+  },
+  {
+    "name": "Screenshot to Code",
+    "slug": "screenshot-to-code",
+    "repo": "abi/screenshot-to-code",
+    "category": "视觉编辑器与 AI 辅助出稿",
+    "fit": "适合从设计截图快速生成可运行 HTML/Tailwind 页面原型。",
+    "note": "截图转代码的代表项目，适合快速验证视觉方向或做设计交付加速。"
+  },
+  {
+    "name": "Onlook",
+    "slug": "onlook",
+    "repo": "onlook-dev/onlook",
+    "category": "视觉编辑器与 AI 辅助出稿",
+    "fit": "适合在真实 React 页面里做可视化编辑与 AI 改稿。",
+    "note": "面向 React/Tailwind 的可视化编辑器，把设计操作直接落到代码。"
+  },
+  {
+    "name": "Mitosis",
+    "slug": "mitosis",
+    "repo": "BuilderIO/mitosis",
+    "category": "视觉编辑器与 AI 辅助出稿",
+    "fit": "适合一次设计稿/组件代码编译到 React/Vue/Svelte/Angular 多端。",
+    "note": "Builder.io 的跨框架编译方案，适合维护多技术栈组件库。"
+  },
+  {
+    "name": "Mermaid",
+    "slug": "mermaid",
+    "repo": "mermaid-js/mermaid",
+    "category": "演示、图形与视觉叙事",
+    "fit": "适合文档里的流程图、时序图、ER 图，文本即图表。",
+    "note": "Markdown 友好的图表语法，GitHub、文档站和 IDE 都原生支持。"
+  },
+  {
+    "name": "Reveal.js",
+    "slug": "reveal-js",
+    "repo": "hakimel/reveal.js",
+    "category": "演示、图形与视觉叙事",
+    "fit": "适合技术分享、产品发布，用 HTML 做可交互演示文稿。",
+    "note": "老牌 HTML 演示框架，支持 Markdown、代码高亮、演讲者视图。"
+  },
+  {
+    "name": "Slidev",
+    "slug": "slidev",
+    "repo": "slidevjs/slidev",
+    "category": "演示、图形与视觉叙事",
+    "fit": "适合开发者大会、技术培训，Markdown 写幻灯片并带代码高亮。",
+    "note": "为开发者设计的演示工具，代码、动画和主题都很强。"
+  },
+  {
+    "name": "React Flow",
+    "slug": "react-flow",
+    "repo": "xyflow/xyflow",
+    "category": "演示、图形与视觉叙事",
+    "fit": "适合节点编辑器、工作流编排和 AI Agent 流程可视化。",
+    "note": "成熟的节点/连线交互引擎，拖拽、缩放、连线和自定义节点齐全。"
+  },
+  {
+    "name": "Marp",
+    "slug": "marp",
+    "repo": "marp-team/marp",
+    "category": "演示、图形与视觉叙事",
+    "fit": "适合从 Markdown 快速生成品牌一致的技术演示和课件。",
+    "note": "Markdown 转幻灯片，主题可定制，适合批量产出技术内容。"
+  }
+]
