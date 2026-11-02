@@ -9,8 +9,6 @@
 ![数据日期](https://img.shields.io/badge/data-2026--11--02-2563eb?style=flat-square)
 ![PRs](https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat-square)
 
-<sub>最后核验：2026-11-02 · 仅收录 Star ≥ 3,000 且未归档的仓库</sub>
-
 <sub>[落地页与营销页](#cat-1) · [SaaS 控制台与仪表盘](#cat-2) · [电商与商业转化](#cat-3) · [作品集与个人站](#cat-4) · [文档站与内容站](#cat-5) · [动效与滚动叙事](#cat-6) · [设计系统与 Token](#cat-7) · [UI 组件库](#cat-8) · [排版、字体与图标](#cat-9) · [数据可视化](#cat-10) · [视觉编辑器与 AI 辅助出稿](#cat-11) · [演示、图形与视觉叙事](#cat-12)</sub>
 
 </div>

@@ -57,8 +57,6 @@ Add-Text '![许可证](https://img.shields.io/badge/licenses-MIT%20%7C%20Apache-
 Add-Text "![数据日期](https://img.shields.io/badge/data-$($date -replace '-', '--')-2563eb?style=flat-square)"
 Add-Text '![PRs](https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat-square)'
 Add-Text ''
-Add-Text "<sub>最后核验：$date · 仅收录 Star ≥ 3,000 且未归档的仓库</sub>"
-Add-Text ''
 Add-Text "<sub>$nav</sub>"
 Add-Text ''
 Add-Text '</div>'
