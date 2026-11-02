@@ -53,7 +53,7 @@ if ($readme -match '\*\*作者致谢：\*\*' -or $readme -match '\*\*为什么�
     $errors += 'README still contains the old per-entry thank-you or rationale block.'
 }
 $sectionCount = @($readme -split "`r?`n" | Where-Object { $_ -match '^## ' }).Count
-if ($sectionCount -lt 16) { $errors += "README has only $sectionCount level-2 sections, expected 12 categories plus 4 closing sections." }
+if ($sectionCount -lt 14) { $errors += "README has only $sectionCount level-2 sections, expected 12 categories plus credits and disclaimer." }
 $creditsSection = ($readme -split '## 致谢开源作者')[1]
 if (-not $creditsSection) { $errors += 'README is missing the credits section.' }
 else {

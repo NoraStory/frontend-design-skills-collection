@@ -277,17 +277,3 @@
 
 本仓库只做收集与整理，**不拥有任何上游项目的版权**。代码、设计、字体、图标与商标归原作者及贡献者所有，使用时请遵守各项目自己的许可证。收录不代表安全审计或商业适用性背书。
 
-## 贡献指南
-
-- 仓库需未归档、Star ≥ 3,000，并与前端设计直接相关。
-- 许可证必须是 MIT / Apache-2.0 / BSD / ISC / MPL-2.0 / CC / OFL 等明确开源许可，不接受 source-available 或自定义商用限制。
-- 在 `data/curation.json` 增加条目，运行 `pwsh ./scripts/build-data.ps1`、`pwsh ./scripts/build-docs.ps1` 与 `pwsh ./scripts/verify.ps1`，不要手工修改 README 表格。
-
-## 数据说明
-
-- 条目数：**73**；分类数：**12**；数据日期：**2026-11-02**；Star 总数：**3,066,829**。
-- 采集方式：对每个仓库执行 `gh api repos/{owner}/{repo}`，读取 `stargazers_count`、`license.spdx_id`、`archived`、`owner.login`。
-- 筛选口径：Star ≥ 3,000、未归档、许可证在白名单内。已归档的 pico、vercel/commerce、shoelace、Shopify/polaris，以及 GPL / FSL / 双许可 / 无统一许可证的项目已排除。
-- Fluent UI、Vuetify、Lucide 在 GitHub 显示为 `NOASSERTION`，已人工核对各自 LICENSE 后分别记为 MIT、MIT、ISC。
-- 可筛选版本见 [目录索引.xlsx](目录索引.xlsx)；结构化数据见 [data/repos.json](data/repos.json)；每项目短卡片见 [skills/](skills/)。
-
